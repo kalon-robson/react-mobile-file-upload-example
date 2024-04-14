@@ -1,0 +1,9 @@
+{
+	"name": "react-mobile-file-upload-example-mobile",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "client",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"forwardPorts": [
+		19000
+	]
+}

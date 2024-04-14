@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+      - ~/.ssh:/home/node/.ssh:cached
+      - ~/.npmrc:/home/node/.npmrc:cached
+    command: sleep infinity
+    working_dir: /workspaces/react-mobile-file-upload-example/server
+
+  database:
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    network_mode: service:server
+
+  azure-blob-storage:
+    image: mcr.microsoft.com/azure-storage/azurite
+    restart: unless-stopped
+    environment:
+      - AZURITE_ACCOUNTS=devstoreaccount1:devstoreaccount1:12345678
+      - AZURITE_BLOB_HOST=0.0.0.0
+      - TZ=UTC
+    network_mode: service:server
+
+volumes:
+  postgres-data:

@@ -1,0 +1,67 @@
+{
+  "name": "react-mobile-file-upload-example-mobile",
+  "version": "0.0.1",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "dev": "yarn copyEnv expo start --port 19000",
+    "build": "yarn copyEnv NODE_ENV=production eas build",
+    "deploy": "yarn copyEnv NODE_ENV=production eas submit",
+    "codegen": "yarn copyEnv graphql-codegen --config codegen.ts",
+    "copyEnv": "cross-env $(cat .env | xargs)",
+    "build:web": "cross-env $(cat .env | xargs) NODE_ENV=production expo export:web",
+    "lint": "eslint",
+    "lint-staged": "lint-staged",
+    "postinstall": "husky install"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.9",
+    "@expo-google-fonts/open-sans": "^0.2.3",
+    "apollo-upload-client": "^17.0.0",
+    "dotenv": "^16.3.1",
+    "expo": "~49.0.15",
+    "expo-constants": "^14.4.2",
+    "expo-file-system": "~15.4.5",
+    "expo-image-picker": "^14.7.1",
+    "expo-status-bar": "~1.4.0",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "react": "18.2.0",
+    "react-hook-form": "^7.51.3",
+    "react-native": "0.72.6",
+    "react-native-extended-stylesheet": "^0.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@graphql-codegen/cli": "^3.2.1",
+    "@graphql-codegen/client-preset": "^2.1.0",
+    "@graphql-codegen/typescript": "^3.0.1",
+    "@graphql-codegen/typescript-operations": "^3.0.1",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
+    "@innovixx/eslint-config": "^1.3.2",
+    "@types/apollo-upload-client": "^17.0.0",
+    "@types/color": "^3.0.3",
+    "@types/node": "^18.14.1",
+    "@types/react": "~18.2.14",
+    "@types/react-native": "~0.70.6",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.34.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-sort-export-all": "^1.4.1",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "typescript": "^5.1.3"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "yarn lint"
+    ]
+  },
+  "private": true
+}

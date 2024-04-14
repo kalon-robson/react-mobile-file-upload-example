@@ -1,0 +1,23 @@
+{
+  "name": "react-mobile-file-upload-example",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "server",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Prisma.prisma",
+        "GraphQL.vscode-graphql"
+      ]
+    }
+  },
+  "forwardPorts": [
+    3000,
+    9000,
+    5432,
+    19000,
+    10000,
+    10001,
+    10002
+  ]
+}
